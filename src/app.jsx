@@ -5,11 +5,16 @@ const Div = styled.div`
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
+  display: flex;
 
   background: #fff;
   /* margin: 130px 0 40px 0; */
   /* position: relative; */
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+  *:focus {
+    outline: 0;
+  }
 `
 
 const H1 = styled.h1`
@@ -25,7 +30,7 @@ const H1 = styled.h1`
 
 const Input = styled.input`
   margin: 0;
-  width: 100%;
+  flex-grow: 1;
   font-size: 24px;
   font-family: inherit;
   font-weight: inherit;
@@ -39,14 +44,10 @@ const Input = styled.input`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  padding: 16px 16px 16px 60px;
+  padding: 16px 16px 16px 46px;
   border: none;
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
-
-  :focus {
-    outline: 0;
-  }
 
   /* &::input-placeholder { */
   &::-webkit-input-placeholder {
@@ -57,13 +58,20 @@ const Input = styled.input`
 `
 
 const CheckBox = styled.input`
-  /* visibility: hidden; */
+  margin: 0;
+  appearance: none;
+  transform: rotate(90deg);
+  border: none; /* Mobile Safari */
 
   &::before {
     content: '❯';
     font-size: 22px;
     color: #e6e6e6;
-    padding: 10px 27px 10px 27px;
+    /* padding: 10px 6px; */
+  }
+
+  &:checked::before {
+    color: #737373;
   }
 `
 
