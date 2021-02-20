@@ -2,14 +2,12 @@ import styled from 'styled-components'
 import GlobalStyles from './components/global-styles'
 
 const Div = styled.div`
+  display: flex;
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
-  display: flex;
 
   background: #fff;
-  /* margin: 130px 0 40px 0; */
-  /* position: relative; */
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 
   *:focus {
@@ -35,12 +33,8 @@ const Input = styled.input`
   font-family: inherit;
   font-weight: inherit;
   line-height: 1.4em;
-  /* border: 0; */
   color: inherit;
-  /* padding: 6px; */
-  /* border: 1px solid #999; */
-  /* box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2); */
-  /* box-sizing: border-box; */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -49,8 +43,7 @@ const Input = styled.input`
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 
-  /* &::input-placeholder { */
-  &::-webkit-input-placeholder {
+  &::placeholder {
     font-style: italic;
     font-weight: 300;
     color: #e6e6e6;
@@ -67,7 +60,6 @@ const CheckBox = styled.input`
     content: '❯';
     font-size: 22px;
     color: #e6e6e6;
-    /* padding: 10px 6px; */
   }
 
   &:checked::before {
