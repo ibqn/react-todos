@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import GlobalStyles from './components/global-styles'
+import TodoList from './components/todo-list'
 
 const Div = styled.div`
   display: flex;
@@ -67,24 +69,29 @@ const CheckBox = styled.input`
   }
 `
 
-const App = () => (
-  <>
-    <GlobalStyles />
-    <header>
-      <H1>todos</H1>
-      <Div>
-        <CheckBox type="checkbox" />
-        <Input
-          className="new-todo"
-          placeholder="What needs to be done?"
-          // value={this.state.newTodo}
-          // onKeyDown={this.handleNewTodoKeyDown}
-          // onChange={this.handleChange}
-          autoFocus={true}
-        />
-      </Div>
-    </header>
-  </>
-)
+const App = () => {
+  const [list, setList] = useState([])
+
+  return (
+    <>
+      <GlobalStyles />
+      <header>
+        <H1>todos</H1>
+        <Div>
+          <CheckBox type="checkbox" />
+          <Input
+            className="new-todo"
+            placeholder="What needs to be done?"
+            // value={this.state.newTodo}
+            // onKeyDown={this.handleNewTodoKeyDown}
+            // onChange={this.handleChange}
+            autoFocus={true}
+          />
+        </Div>
+        <TodoList list={list}></TodoList>
+      </header>
+    </>
+  )
+}
 
 export default App
