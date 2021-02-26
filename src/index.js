@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import App from './app'
 import reportWebVitals from './reportWebVitals'
 
+// import i18n as it needs to be bundled
+import './i18n'
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback="loading">
+      <App />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 )

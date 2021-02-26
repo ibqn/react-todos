@@ -1,0 +1,4 @@
+{
+  "itemsCount": "<strong>{{ count }}</strong> item left",
+  "itemsCount_plural": "<strong>{{ count }}</strong> items left"
+}
