@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
+  background: #fff;
   color: #777;
   padding: 10px 15px;
   height: 50px;
@@ -17,8 +18,13 @@ const StyledFooter = styled.footer`
   grid-column-gap: 5px;
   /* justify-items: center; */
 
-  &:before {
+  *:focus {
+    outline: 0;
+  }
+
+  &:after {
     content: '';
+    z-index: -1;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -68,6 +74,19 @@ const Button = styled.button`
   /* grid-column-start: 3; */
   margin-left: auto;
   margin-right: 0;
+
+  appearance: none;
+  border: none;
+  background: none;
+
+  line-height: 20px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 const Footer = (props) => {
@@ -95,7 +114,7 @@ const Footer = (props) => {
         </li>
       </Filters>
 
-      <Button>clear all</Button>
+      <Button>Clear all</Button>
     </StyledFooter>
   )
 }
