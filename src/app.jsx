@@ -74,7 +74,11 @@ const CheckBox = styled.input`
 `
 
 const App = () => {
-  const [list, setList] = useState([])
+  // const [list, setList] = useState([])
+  const list = [
+    { id: 1, title: 'one' },
+    { id: 2, title: 'two' },
+  ]
 
   return (
     <>
@@ -93,7 +97,7 @@ const App = () => {
           />
         </Div>
         <TodoList list={list}></TodoList>
-        <Footer count={4} />
+        <Footer count={1} />
       </Header>
     </>
   )
