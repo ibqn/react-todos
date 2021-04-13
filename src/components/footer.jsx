@@ -6,17 +6,13 @@ const StyledFooter = styled.footer`
   color: #777;
   padding: 10px 15px;
   height: 50px;
-  /* text-align: center; */
+
   border-top: 1px solid #e6e6e6;
   position: relative;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
-  /* align-items: flex-start; */
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 5px;
-  /* justify-items: center; */
 
   *:focus {
     outline: 0;
@@ -43,6 +39,8 @@ const Count = styled.span`
 
 const Filters = styled.ul`
   align-self: center;
+  justify-self: center;
+  display: flex;
 
   margin: 0;
   padding: 0;
@@ -52,20 +50,24 @@ const Filters = styled.ul`
     display: inline;
   }
 
-  & li a {
+  & li button {
+    font: inherit;
     color: inherit;
     margin: 3px;
     padding: 3px 7px;
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
+
+    appearance: none;
+    background: none;
   }
 
-  & li a:hover {
+  & li button:hover {
     border-color: rgba(175, 47, 47, 0.1);
   }
 
-  & li a.selected {
+  & li button.selected {
     border-color: rgba(175, 47, 47, 0.2);
   }
 `
@@ -104,13 +106,13 @@ const Footer = (props) => {
 
       <Filters>
         <li>
-          <a>All</a>
+          <button>All</button>
         </li>
         <li>
-          <a>Active</a>
+          <button>Active</button>
         </li>
         <li>
-          <a>Completed</a>
+          <button>Completed</button>
         </li>
       </Filters>
 
