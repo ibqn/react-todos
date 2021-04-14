@@ -9,6 +9,7 @@ const MainSection = styled.section`
 const List = styled.ul`
   margin: 0;
   padding: 0;
+  list-style: none;
 `
 
 const TodoList = (props) => {
@@ -17,7 +18,7 @@ const TodoList = (props) => {
     <MainSection>
       <List>
         {list?.map((item) => (
-          <TodoItem key={item.id}>item.description</TodoItem>
+          <TodoItem key={item.id} item={item} />
         ))}
       </List>
     </MainSection>
