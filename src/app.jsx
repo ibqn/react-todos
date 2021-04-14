@@ -12,6 +12,7 @@ const Header = styled.header`
 
 const Div = styled.div`
   display: flex;
+  /* flex-direction: column; */
 
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -74,11 +75,10 @@ const CheckBox = styled.input`
 `
 
 const App = () => {
-  // const [list, setList] = useState([])
-  const list = [
+  const [list, setList] = useState(() => [
     { id: 1, title: 'one' },
     { id: 2, title: 'two' },
-  ]
+  ])
 
   return (
     <>
