@@ -80,24 +80,33 @@ const App = () => {
     { id: 2, title: 'two' },
   ])
 
+  const [todo, setTodo] = useState()
+
+  const handleChange = ({ target: { value } }) => setTodo(value)
+
+  const handleNewTodo = ({ key }) => {
+    if (key === 'Enter') {
+      setList([...list, { id: todo, title: todo }])
+    }
+  }
+
   return (
     <>
       <GlobalStyles />
       <Header>
         <H1>todos</H1>
+
         <Div>
           <CheckBox type="checkbox" />
           <Input
-            className="new-todo"
             placeholder="What needs to be done?"
-            // value={this.state.newTodo}
-            // onKeyDown={this.handleNewTodoKeyDown}
-            // onChange={this.handleChange}
+            onKeyDown={handleNewTodo}
+            onChange={handleChange}
             autoFocus={true}
           />
         </Div>
         <TodoList list={list}></TodoList>
-        <Footer count={1} />
+        <Footer count={list.length} />
       </Header>
     </>
   )
