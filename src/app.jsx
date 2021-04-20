@@ -12,14 +12,15 @@ const Header = styled.header`
 
 const Div = styled.div`
   display: flex;
-  /* flex-direction: column; */
-
-  background: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 
   *:focus {
     outline: 0;
   }
+`
+
+const Box = styled.div`
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 `
 
 const H1 = styled.h1`
@@ -74,6 +75,8 @@ const CheckBox = styled.input`
   }
 `
 
+const ENTER_KEY = 13
+
 const App = () => {
   const [list, setList] = useState(() => [
     { id: 1, title: 'one' },
@@ -84,8 +87,8 @@ const App = () => {
 
   const handleChange = ({ target: { value } }) => setTodo(value)
 
-  const handleNewTodo = ({ key }) => {
-    if (key === 'Enter') {
+  const handleNewTodo = ({ keyCode }) => {
+    if (keyCode === ENTER_KEY) {
       setList([...list, { id: todo, title: todo }])
     }
   }
@@ -96,17 +99,19 @@ const App = () => {
       <Header>
         <H1>todos</H1>
 
-        <Div>
-          <CheckBox type="checkbox" />
-          <Input
-            placeholder="What needs to be done?"
-            onKeyDown={handleNewTodo}
-            onChange={handleChange}
-            autoFocus={true}
-          />
-        </Div>
-        <TodoList list={list}></TodoList>
-        <Footer count={list.length} />
+        <Box>
+          <Div>
+            <CheckBox type="checkbox" />
+            <Input
+              placeholder="What needs to be done?"
+              onKeyDown={handleNewTodo}
+              onChange={handleChange}
+              autoFocus={true}
+            />
+          </Div>
+          <TodoList list={list}></TodoList>
+          <Footer count={list.length} />
+        </Box>
       </Header>
     </>
   )
